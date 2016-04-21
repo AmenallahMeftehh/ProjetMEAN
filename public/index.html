@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app='app'>
   <head>
     <meta charset="utf-8">
     <!-- style css et bootstrap -->
@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <title>ContactList</title>
   </head>
-  <body>
-    <div class="container">
+  <body >
+    <div class="container" ng-controller="contactCtrl">
       <h1>ContactList</h1>
       <table class="table">
         <thead>
@@ -18,13 +18,24 @@
             <th>Number</th>
           </tr>
         </thead>
-
+        <tbody>
+          <tr ng-repeat="person in contactlist">
+            <td>{{person.name}}</td>
+            <td>{{person.mail}}</td>
+            <td>{{person.number}}</td>
+          </tr>
+        </tbody>
 
       </table>
 
     </div>
 <!-- declaration d'angularJS -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+<!-- declaration des controllers -->
+<script src="app.js"></script>
+<script src="controllers/contactController.js"></script>
+
+
 
   </body>
 </html>
