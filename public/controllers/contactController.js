@@ -25,13 +25,21 @@ refresh();
       refresh();
     })
   };
-// fonction modifier contact
-$scope.edit=function(id){
-console.log(id);
-$http.get('/contactlist/'+id).success(function(response){
-  $scope.contactlist=response;
-});
+// fonction recuperer l'identifiant d'un  contact
+$scope.edit = function(id){
+    console.log(id);
+    $http.get('/contactlist/'+id).success(function(response)
+    {
+      $scope.contact=response;
+    });
 
+};
+// fonction pour mettre a jour un contact
+$scope.update = function(){
+  console.log($scope.contact._id);
+  $http.put('/contactlist/'+$scope.contact._id,$scope.contact).success(function(response) {
+    refresh();
+  });
 };
 
 
