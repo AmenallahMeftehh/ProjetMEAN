@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='app'>
+<html ng-app='myApp'>
   <head>
     <meta charset="utf-8">
     <!-- style css et bootstrap -->
@@ -16,13 +16,23 @@
             <th>Name</th>
             <th>Email</th>
             <th>Number</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="person in contactlist">
-            <td>{{person.name}}</td>
-            <td>{{person.mail}}</td>
-            <td>{{person.number}}</td>
+          <tr>
+            <td><input type="text" class="form-control" ng-model="contact.name"></td>
+            <td><input type="text" class="form-control" ng-model="contact.mail"></td>
+            <td><input type="text" class="form-control" ng-model="contact.number"></td>
+            <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+            <td><button class="btn btn-default" ng-click="update()">Update </button></td>
+          </tr>
+          <tr ng-repeat="contact in contactlist">
+            <td>{{contact.name}}</td>
+            <td>{{contact.mail}}</td>
+            <td>{{contact.number}}</td>
+            <td><button type="button" class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+            <td><button type="button" class="btn btn-warning" ng-click="edit()">Edit</button></td>
           </tr>
         </tbody>
 
